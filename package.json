@@ -1,0 +1,31 @@
+{
+  "name": "dsh-voice-input",
+  "description": "Voice input for the DSH web composer: mic button in the tool row, streaming speech-to-text via Web Speech API (fastest) with an optional local FunASR engine (most accurate).",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@deepseek-ai/dsh-client-ui-slots": "^0.1.0-rc.6"
+  }
+}

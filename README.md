@@ -2,7 +2,7 @@
 
 [**English**](README.md) | [**中文**](README.zh.md)
 
-<img src="assets/banner.png" alt="dsh-voice-input" width="100%"/>
+<img src="assets/hero.png" alt="dsh-voice-input" width="100%"/>
 
 **Streaming voice input for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) web composer.**
 **Click the mic · speak · the transcript lands in your draft — live.**
@@ -45,10 +45,6 @@ your local FunASR server automatically** — or force one engine via `localStora
 2. **Web Speech API** streams natively (Chrome/Edge); on failure the same audio path switches to
    **local FunASR** over WebSocket (`ws://127.0.0.1:8899/ws`)
 3. Final text is appended to the composer draft via `inputActions.setDraft()`
-
-## 📸 Screenshots
-
-<img src="assets/screenshot-mockup.png" alt="screenshots" width="100%"/>
 
 ## 🚀 Quick start
 

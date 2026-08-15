@@ -2,7 +2,7 @@
 
 [**English**](README.md) | [**中文**](README.zh.md)
 
-<img src="assets/banner.png" alt="dsh-voice-input" width="100%"/>
+<img src="assets/hero.png" alt="dsh-voice-input" width="100%"/>
 
 **为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web 界面打造的流式语音输入插件。**
 **点击麦克风 · 开口说话 · 转写文本实时落入输入框。**
@@ -44,10 +44,6 @@ Web Speech 识别失败（如 Chrome 无法访问 Google 服务）时，插件**
 2. **Web Speech API** 原生流式识别（Chrome/Edge）；失败时同一音频链路自动切换
    **本地 FunASR**（WebSocket `ws://127.0.0.1:8899/ws`）
 3. 识别文本通过 `inputActions.setDraft()` 追加进输入框草稿
-
-## 📸 界面预览
-
-<img src="assets/screenshot-mockup.png" alt="界面预览" width="100%"/>
 
 ## 🚀 快速开始
 

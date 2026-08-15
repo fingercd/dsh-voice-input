@@ -41,8 +41,6 @@ your local FunASR server automatically** — or force one engine via `localStora
 
 ## 🏗️ How it works
 
-<img src="assets/architecture.png" alt="architecture" width="100%"/>
-
 1. Click the mic button → browser captures 16 kHz mono PCM
 2. **Web Speech API** streams natively (Chrome/Edge); on failure the same audio path switches to
    **local FunASR** over WebSocket (`ws://127.0.0.1:8899/ws`)
@@ -129,3 +127,11 @@ command (`/`) trigger integration, per-language model switching.
 ## 📄 License
 
 [MIT](LICENSE) © fingercd
+
+## ⚖️ Third-party notices
+
+This project uses [FunASR](https://github.com/modelscope/FunASR) (MIT),
+[paraformer-zh-streaming](https://huggingface.co/funasr/paraformer-zh-streaming)
+(Apache-2.0), [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
+(MIT) and icon paths from [Lucide](https://lucide.dev) (ISC). Full license
+texts and attributions: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

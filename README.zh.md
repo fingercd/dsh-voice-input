@@ -40,8 +40,6 @@ Web Speech 识别失败（如 Chrome 无法访问 Google 服务）时，插件**
 
 ## 🏗️ 工作原理
 
-<img src="assets/architecture.png" alt="架构图" width="100%"/>
-
 1. 点击麦克风按钮 → 浏览器采集 16kHz 单声道 PCM
 2. **Web Speech API** 原生流式识别（Chrome/Edge）；失败时同一音频链路自动切换
    **本地 FunASR**（WebSocket `ws://127.0.0.1:8899/ws`）
@@ -122,3 +120,11 @@ localStorage.setItem("dsh.voice.input.funasrUrl", "ws://127.0.0.1:8899/ws");   /
 ## 📄 开源协议
 
 [MIT](LICENSE) © fingercd
+
+## ⚖️ 第三方声明
+
+本项目使用了 [FunASR](https://github.com/modelscope/FunASR)（MIT）、
+[paraformer-zh-streaming](https://huggingface.co/funasr/paraformer-zh-streaming)（Apache-2.0）、
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（MIT）
+以及 [Lucide](https://lucide.dev)（ISC）的图标路径。
+完整许可证文本与署名见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

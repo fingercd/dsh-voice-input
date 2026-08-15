@@ -1,0 +1,7 @@
+# dsh-voice-input bundle patch.
+# Auto-applied when this package is installed as a profile dependency
+# (declared by package.json `dsh.bundle`): the voice-input browser roster
+# row is registered automatically — no manual cordis.patch.yml edits needed.
+- insert:
+    - id: voice-input
+      name: 'dsh-voice-input'

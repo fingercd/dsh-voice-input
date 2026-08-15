@@ -54,27 +54,29 @@ your local FunASR server automatically** — or force one engine via `localStora
 
 ## 🚀 Quick start
 
-### 1. Install the plugin
+### 1. Install the plugin (directly from GitHub)
 
 ```powershell
-# from the cloned repo directory:
-dsh plugin --profile web add "<path-to-this-repo>"
+# no clone needed — pnpm installs straight from the repo:
+dsh plugin --profile web add "github:fingercd/dsh-voice-input"
+# or with a full git URL:
+dsh plugin --profile web add "https://github.com/fingercd/dsh-voice-input.git"
 ```
 
-### 2. Register the roster (one-time)
+### 2. Restart `dsh web` — that's it
 
-Append to `~/.dsh/profiles/web/cordis.patch.yml`:
+The package carries its own `dsh.bundle` patch (`cordis.patch.yml`), so the
+`voice-input` browser roster row is **registered automatically on install** —
+no manual edits to `cordis.patch.yml`, no agent-side configuration.
 
-```yaml
-- insert:
-    - id: voice-input
-      name: 'dsh-voice-input'
+```powershell
+# verify the auto-registration before restarting (read-only):
+dsh --profile web --dump-config | findstr voice-input
 ```
 
-### 3. Restart `dsh web`
-
-Client plugins load dynamically at boot — **no frontend rebuild needed**. Refresh the page and
-the mic button appears at the left end of the composer tool row.
+Client plugins load dynamically at boot — **no frontend rebuild needed**. After
+restarting `dsh web`, refresh the page and the mic button appears at the left
+end of the composer tool row.
 
 ## 🎯 Local FunASR engine (optional — maximum accuracy)
 
@@ -111,6 +113,7 @@ docstring has the full detail).
 |---|---|
 | `lib/index.js` | Host (node) half — empty `apply`, ensures the Loader roster entry |
 | `lib/client.js` | Browser bundle — mic button, dual-engine orchestration, draft commits |
+| `cordis.patch.yml` | Bundle patch (`dsh.bundle`) — auto-registers the `voice-input` roster row on install |
 | `scripts/funasr_server.py` | Local streaming ASR service (FastAPI + WebSocket + FunASR) |
 | `scripts/install_funasr.ps1` | One-shot dependency installer |
 

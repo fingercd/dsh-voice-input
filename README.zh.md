@@ -53,26 +53,26 @@ Web Speech 识别失败（如 Chrome 无法访问 Google 服务）时，插件**
 
 ## 🚀 快速开始
 
-### 1. 安装插件
+### 1. 安装插件（直接从 GitHub 安装）
 
 ```powershell
-# 在本仓库克隆目录下执行：
-dsh plugin --profile web add "<本仓库路径>"
+# 无需 clone —— pnpm 直接从仓库安装：
+dsh plugin --profile web add "github:fingercd/dsh-voice-input"
+# 或使用完整 git URL：
+dsh plugin --profile web add "https://github.com/fingercd/dsh-voice-input.git"
 ```
 
-### 2. 注册 roster（一次性）
+### 2. 重启 `dsh web` —— 完事
 
-在 `~/.dsh/profiles/web/cordis.patch.yml` 追加：
+插件自带 `dsh.bundle` patch（`cordis.patch.yml`），`voice-input` 的 roster 行在**安装时自动注册** ——
+无需手动编辑 `cordis.patch.yml`，无需 agent 辅助配置。
 
-```yaml
-- insert:
-    - id: voice-input
-      name: 'dsh-voice-input'
+```powershell
+# 重启前可用只读命令验证自动注册：
+dsh --profile web --dump-config | findstr voice-input
 ```
 
-### 3. 重启 `dsh web`
-
-client 插件在启动时动态加载 —— **无需重建前端**。刷新页面，麦克风按钮出现在输入框工具行左端。
+client 插件在启动时动态加载 —— **无需重建前端**。重启 `dsh web` 后刷新页面，麦克风按钮出现在输入框工具行左端。
 
 ## 🎯 本地 FunASR 引擎（可选 · 准确度优先）
 
@@ -108,6 +108,7 @@ localStorage.setItem("dsh.voice.input.funasrUrl", "ws://127.0.0.1:8899/ws");   /
 |---|---|
 | `lib/index.js` | 宿主侧（node）—— 空 apply，保证进入 Loader roster |
 | `lib/client.js` | 浏览器 bundle —— 麦克风按钮、双引擎编排、草稿提交 |
+| `cordis.patch.yml` | Bundle patch（`dsh.bundle`）—— 安装时自动注册 `voice-input` roster 行 |
 | `scripts/funasr_server.py` | 本地流式识别服务（FastAPI + WebSocket + FunASR） |
 | `scripts/install_funasr.ps1` | 一键依赖安装 |
 
